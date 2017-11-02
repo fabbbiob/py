@@ -79,5 +79,7 @@ source /Users/fabiobongiovanni/sw/google-cloud-sdk/path.bash.inc
 alias ll="ls -la"
 alias envon="source $HOME/.venvs/startEnv.sh"
 
-
-
+----------------------------------------------------------------------------------------------
+NODE
+----------------------------------------------------------------------------------------------
+nvm github installo da li

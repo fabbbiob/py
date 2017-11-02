@@ -66,7 +66,9 @@ def main():
     else:
         print('Courses:')
         for course in courses:
-            print(course['name'])
+            
+            print( "\n[{}] {}".format(type(course),course ) )
+
 
 
 if __name__ == '__main__':
