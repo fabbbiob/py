@@ -83,3 +83,7 @@ alias envon="source $HOME/.venvs/startEnv.sh"
 NODE
 ----------------------------------------------------------------------------------------------
 nvm github installo da li
+
+
+
+googleapiclient.errors.HttpError 403 when requesting https://classroom.googleapis.com/v1/courses courseWork?alt=json Request had insufficient authentication scopes

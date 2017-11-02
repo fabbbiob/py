@@ -59,15 +59,15 @@ def main():
     service = discovery.build('classroom', 'v1', http=http)
 
     results = service.courses().list(pageSize=10).execute()
-    courses = results.get('courses', [])
+    courses = results.get('courses', []) 
 
     if not courses:
         print('No courses found.')
     else:
-        print('Courses:')
+        print('Courses:') 
         for course in courses:
-            
-            print( "\n[{}] {}".format(type(course),course ) )
+            studentSubmissions = service.courses().courseWork().list(courseId=course["id"]).execute()
+            print( "\n[{}] {}".format(course["id"],course ) )
 
 
 
