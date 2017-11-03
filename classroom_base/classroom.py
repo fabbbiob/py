@@ -9,9 +9,9 @@ from oauth2client.file import Storage
 
 try:
     import argparse
-    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+    FLAGS = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
 except ImportError:
-    flags = None
+    FLAGS = None
 
 # If modifying these scopes, delete your previously saved credentials
 # at ~/.credentials/classroom.googleapis.com-python-quickstart.json
@@ -33,8 +33,8 @@ def get_credentials():
     credential_dir = os.path.join(home_dir, '.credentials')
     if not os.path.exists(credential_dir):
         os.makedirs(credential_dir)
-    credential_path = os.path.join(credential_dir,
-                                   'classroom.googleapis.com-python-quickstart.json')
+    
+    credential_path = os.path.join(credential_dir, 'classroom.googleapis.com-python-quickstart.json')
 
     store = Storage(credential_path)
     credentials = store.get()
@@ -48,26 +48,27 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
+
 def main():
     """Shows basic usage of the Classroom API.
-
     Creates a Classroom API service object and prints the names of the first
     10 courses the user has access to.
     """
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('classroom', 'v1', http=http)
-
     results = service.courses().list(pageSize=10).execute()
-    courses = results.get('courses', []) 
-
+    courses = results.get('courses',[])
     if not courses:
         print('No courses found.')
     else:
-        print('Courses:') 
+        print('Courses:')
         for course in courses:
-            studentSubmissions = service.courses().courseWork().list(courseId=course["id"]).execute()
-            print( "\n[{}] {}".format(course["id"],course ) )
+            print( "\n[{}] {}".format(course["id"],course))
+            
+            works = service.courses().courseWork().list(courseId=course["id"],pageSize=10).execute()
+            for work in works:
+                print( " works {}".format(work["id"]) )
 
 
 
