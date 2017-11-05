@@ -1,22 +1,28 @@
+#!/usr/bin/env node
+
 console.log("start");
 //nodejs.org/api
 const fs = require('fs');
-const os = require('os');
 const _ = require('lodash');
-const nts = require('./notes.js');
+const yargs = require('yargs');
 
-fs.appendFile('./test.txt', "appended text", function(err) {
-    if (err) {
-        console.log(err);
-    }
+const notes = require('./notes.js');
 
-});
+const argv = yargs.argv;
+var command = process.argv[2];
 
-var uid = os.userInfo().username;
-console.log(uid);
-// fs.appendFileSync('./test.txt', "\nappended text2 " + uid);
-// fs.appendFileSync('./test.txt', `\nappended text2 ${uid}`);
-var res = nts.addNote("test2");
-console.log(nts.age);
+console.log('\nYARGS ARGV: ', argv);
 
-console.log(nts.sum(2, -4));
+if (command == "add") {
+    notes.add(argv.title, argv.content);
+} else if (command == "update") {
+    notes.update(argv.title, argv.content);
+} else if (command == "list") {
+    notes.getAll();
+} else if (command == "read") {
+    notes.get(argv.title);
+} else if (command == "remove") {
+    notes.remove(argv.title);
+} else {
+    console.log("unknow")
+}
