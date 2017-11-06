@@ -23,6 +23,4 @@ if (command == "add") {
     notes.get(argv.title);
 } else if (command == "remove") {
     notes.remove(argv.title);
-} else {
-    console.log("unknow")
-}
+} else { console.log("unknow") }

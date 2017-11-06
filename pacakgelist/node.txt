@@ -1,0 +1,14 @@
+
+----------------------------------------------------------------------------------------------
+NODE
+----------------------------------------------------------------------------------------------
+nvm github installo da li
+
+
+
+googleapiclient.errors.HttpError 403 when requesting https://classroom.googleapis.com/v1/courses courseWork?alt=json Request had insufficient authentication scopes
+
+
+nodemon : monitorail file per restartare le app
+
+>npx npmc install -g nvm

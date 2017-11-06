@@ -1,18 +1,3 @@
-#!/bin/bash
-  
-export BASEPTH="/users/fabiobongiovanni"
-
-python3 -m venv $BASEPTH/.venvs/$1
-
-. $BASEPTH/.venvs/$1/bin/activate
-
-
-
-pip freeze > myproject/requirements.txt
-pip install -r requirements.txt
-
-
-
 ----------------------------------------------------------------------------------------------
 GCLOUD
 ----------------------------------------------------------------------------------------------
@@ -78,15 +63,3 @@ source /Users/fabiobongiovanni/sw/google-cloud-sdk/path.bash.inc
 
 alias ll="ls -la"
 alias envon="source $HOME/.venvs/startEnv.sh"
-
-----------------------------------------------------------------------------------------------
-NODE
-----------------------------------------------------------------------------------------------
-nvm github installo da li
-
-
-
-googleapiclient.errors.HttpError 403 when requesting https://classroom.googleapis.com/v1/courses courseWork?alt=json Request had insufficient authentication scopes
-
-
-nodemon : monitorail file per restartare le app
